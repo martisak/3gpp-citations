@@ -8,19 +8,22 @@
 4. Run `python 3gpp-citations.py 2017-06-11_1526_SpecificationList_e85256.xlsx 3gpp.bib`
 5. Use in LaTeX.
 
+*Optionally* use the provided `3gpp.bib` directly.
+
 ## Things to note
 
 * The output `bibtex` class is set to `@techreport`.
-* The date is set to the current date. If you find an easy solution to this, let me know.
+* The version and date are read from the URL, but it is slow so it takes a while to parse the list. If you find an easy solution to this, let me know.
 
 ## Example output
 
 ~~~
 @techreport{3gpp.36.331,
  author = {3GPP},
- days = {11},
+ day = {20},
  institution = {{3rd Generation Partnership Project (3GPP)}},
- month = {06},
+ month = {04},
+ note = {Version 14.2.2},
  number = {36.331},
  title = {{Evolved Universal Terrestrial Radio Access (E-UTRA); Radio Resource Control (RRC); Protocol specification}},
  type = {Technical Specification (TS)},
