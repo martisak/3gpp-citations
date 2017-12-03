@@ -43,12 +43,15 @@ for row in ws.iter_rows(row_offset=1):
         'type': type,
         'author': "3GPP",
         'institution': "{3rd Generation Partnership Project (3GPP)}",
-        'number': number
+        'number': number,
+        'url': "http://www.3gpp.org/\-DynaReport/\-{}.htm"
+        .format(number.replace(".", ""))
     }
 
     if row[0].hyperlink is not None:
-        entry['url'] = row[0].hyperlink.target
-        page = requests.get(entry['url'])
+        # entry['url'] = row[0].hyperlink.target
+
+        page = requests.get(row[0].hyperlink.target)
         tree = html.fromstring(page.content)
 
         for release in range(2):
@@ -71,7 +74,7 @@ for row in ws.iter_rows(row_offset=1):
                     entry['month'] = date[1].strip()
                 break
 
-    print entry
+    print(entry)
     db.entries.append(entry)
 
 writer = BibTexWriter()
