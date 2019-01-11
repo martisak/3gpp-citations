@@ -23,7 +23,7 @@ db = BibDatabase()
 db.entries = []
 
 wb2 = load_workbook(sys.argv[1])
-sheetnames = wb2.get_sheet_names()
+sheetnames = wb2.sheetnames
 ws = wb2[sheetnames[0]]
 
 # Iterate over the rows in the Excel-sheet but skip the header.
