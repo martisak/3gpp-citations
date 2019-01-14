@@ -5,7 +5,7 @@
 1. Go to the [3GPP Portal](https://portal.3gpp.org/#55936-specifications)
 2. Generate the list of specifications you want.
 3. Download to Excel and save file
-4. Run `python 3gpp-citations.py 2017-06-11_1526_SpecificationList_e85256.xlsx 3gpp.bib`
+4. Run `python 3gpp-citations.py -i exported.xlsx -o 3gpp.bib`
 5. Use in LaTeX.
 
 *Optionally* use the provided `3gpp.bib` directly.
@@ -13,6 +13,7 @@
 ## Things to note
 
 * The output `bibtex` class is set to `@techreport`.
+* If you add the option `--xelatex`, no break-symbols `\-` will be used.
 * The version and date are read from the URL, but it is slow so it takes a while to parse the list. If you find an easy solution to this, let me know.
 
 ## Example output
