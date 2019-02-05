@@ -1,4 +1,5 @@
 from distutils.core import setup
+from io import open
 from os import path
 
 # read the contents of the README file
