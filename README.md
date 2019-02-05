@@ -1,6 +1,6 @@
 # 3GPP Bibtex entry generator
 
-![](https://img.shields.io/github/issues-raw/martisak/3gpp-citations.svg?style=flat)
+![](https://img.shields.io/github/issues-raw/martisak/3gpp-citations.svg?style=flat) ![](https://img.shields.io/github/license/martisak/3gpp-citations.svg?style=flat)
 
 ## Instructions
 
