@@ -1,5 +1,7 @@
 # 3GPP Bibtex entry generator
 
+![](https://img.shields.io/github/issues-raw/martisak/3gpp-citations.svg?style=flat)
+
 ## Instructions
 
 1. Go to the [3GPP Portal](https://portal.3gpp.org/#55936-specifications)
