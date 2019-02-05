@@ -10,8 +10,9 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 setup(
     name='3gpp-citations',
     version='0.1dev',
-    packages=['3gpp-citations', ],
+    packages=['standardcitations', ],
     license=open('LICENSE').read(),
     long_description=long_description,
-    long_description_content_type='text/markdown'
+    long_description_content_type='text/markdown',
+    scripts=['bin/3gpp-citations'],
 )
