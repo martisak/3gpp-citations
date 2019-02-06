@@ -2,7 +2,7 @@
 # @Author: Martin Isaksson
 # @Date:   2019-01-14 08:38:09
 # @Last Modified by:   Martin Isaksson
-# @Last Modified time: 2019-01-14 11:19:04
+# @Last Modified time: 2019-02-06 20:13:06
 
 import argparse
 from argparse import RawTextHelpFormatter
@@ -36,7 +36,8 @@ Example output:
 
 @Techreport{3gpp.36.331,
   author = "3GPP",
-  title = "{Evolved Universal Terrestrial Radio Access (E-UTRA); Radio Resource Control (RRC); Protocol specification}",
+  title = "{Evolved Universal Terrestrial Radio Access (E-UTRA);
+        Radio Resource Control (RRC); Protocol specification}",
   type = "TS",
   institution = "{3rd Generation Partnership Project (3GPP)}",
   number = "{36.331}",
