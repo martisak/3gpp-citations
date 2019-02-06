@@ -1,0 +1,12 @@
+language: python
+python:
+  - "2.7"
+install:
+  - pip install -e .
+before_script:
+  - pip install -r requirements.txt
+  - py.test --cov=standardcitations
+script:
+  - py.test --doctest-modules --pep8 standardcitations -v --cov standardcitations --cov-report term-missing
+after_success:
+  - coveralls
