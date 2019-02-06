@@ -18,5 +18,7 @@ setup(
     long_description_content_type='text/markdown',
     scripts=['bin/3gpp-citations'],
     data_files=[
-        ('examples', ['examples/3gpp.bib', 'examples/3gpp_38-series.bib'])]
+        ('examples', ['examples/3gpp.bib', 'examples/3gpp_38-series.bib'])],
+    setup_requires=["pytest-runner"],
+    tests_require=["pytest"]
 )
