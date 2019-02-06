@@ -15,5 +15,6 @@ setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     scripts=['bin/3gpp-citations'],
-    data_files=[('examples', ['output/3gpp.bib', 'output/3gpp_38-series.bib'])]
+    data_files=[
+        ('examples', ['examples/3gpp.bib', 'examples/3gpp_38-series.bib'])]
 )

@@ -1,2 +1,2 @@
 include README.md LICENSE
-recursive-include output *.bib
+recursive-include examples *.bib
