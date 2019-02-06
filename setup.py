@@ -8,6 +8,8 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
+    author='Martin Isaksson',
+    author_email='martin.Isaksson@gmail.com',
     name='3gpp-citations',
     version='0.1dev',
     packages=['standardcitations', ],
