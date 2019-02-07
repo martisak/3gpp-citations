@@ -35,3 +35,9 @@
 }
 ~~~
 
+
+## Acknowledgment
+
+This project has been updated as part of the [WASP Software and Cloud Technology](http://wasp-sweden.org/graduate-school/courses/software-and-cloud-technology-spring-2019/) course.
+
+This work was partially supported by the Wallenberg AI, Autonomous Systems and Software Program (WASP) funded by the Knut and Alice Wallenberg Foundation.
