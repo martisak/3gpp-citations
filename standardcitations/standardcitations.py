@@ -1,8 +1,4 @@
 # -*- coding: utf-8 -*-
-# @Author: Martin Isaksson
-# @Date:   2019-01-14 08:38:09
-# @Last Modified by:   Martin Isaksson
-# @Last Modified time: 2019-02-06 20:13:06
 
 import argparse
 from argparse import RawTextHelpFormatter
@@ -157,7 +153,3 @@ def parse_args(args):
     args = parser.parse_args(args)
 
     return args
-
-
-if __name__ == "__main__":
-    main(parse_args(sys.argv[1:]))
