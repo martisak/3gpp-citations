@@ -1,6 +1,6 @@
 # 3GPP Bibtex entry generator
 
-[![Build Status](https://travis-ci.org/martisak/3gpp-citations.svg?branch=master)](https://travis-ci.org/martisak/3gpp-citations) ![](https://img.shields.io/github/issues-raw/martisak/3gpp-citations.svg?style=flat) ![](https://img.shields.io/github/license/martisak/3gpp-citations.svg?style=flat) [![Coverage Status](https://coveralls.io/repos/github/martisak/3gpp-citations/badge.svg?branch=master)](https://coveralls.io/github/martisak/3gpp-citations?branch=master)
+[![Build Status](https://travis-ci.org/martisak/3gpp-citations.svg?branch=master)](https://travis-ci.org/martisak/3gpp-citations) ![](https://img.shields.io/github/issues-raw/martisak/3gpp-citations.svg?style=flat) ![](https://img.shields.io/github/license/martisak/3gpp-citations.svg?style=flat) [![Coverage Status](https://coveralls.io/repos/github/martisak/3gpp-citations/badge.svg?branch=master)](https://coveralls.io/github/martisak/3gpp-citations?branch=master) [![Gitter chat](https://badges.gitter.im/martisak/3gpp-citations.png)](https://gitter.im/3gpp-citations/community "Gitter chat")
 
 ## Instructions
 
@@ -35,6 +35,9 @@
 }
 ~~~
 
+## Contribute
+
+See our [contribution guidelines](CONTRIBUTING.md).
 
 ## Acknowledgment
 
