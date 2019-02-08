@@ -76,7 +76,7 @@ def main(args):
             ws.iter_rows(row_offset=1),
             total=row_count):
 
-        number, title, type = parse_row(row)
+        number, title, doctype = parse_row(row)
 
         if number is None:
             continue
@@ -92,7 +92,7 @@ def main(args):
             'ID': "3gpp.{}".format(number),
             'ENTRYTYPE': "techreport",
             'title': "{{{}}}".format(title),
-            'type': type,
+            'type': doctype,
             'author': "3GPP",
             'institution': "{3rd Generation Partnership Project (3GPP)}",
             'number': number,
