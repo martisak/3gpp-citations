@@ -57,6 +57,23 @@ def parse_row(row):
     return number, title, doctype
 
 
+def format_entry(number, title, doctype, url):
+    """
+    Format the bibtex entry, return as dict
+    """
+
+    return {
+        'ID': "3gpp.{}".format(number),
+        'ENTRYTYPE': "techreport",
+        'title': "{{{}}}".format(title),
+        'type': doctype,
+        'author': "3GPP",
+        'institution': "{3rd Generation Partnership Project (3GPP)}",
+        'number': number,
+        'url': url
+    }
+
+
 def main(args):
     """
     The main function that does all the heavy lifting.
@@ -88,16 +105,7 @@ def main(args):
             url = "http://www.3gpp.org/DynaReport/{}.htm".format(
                 number.replace(".", ""))
 
-        entry = {
-            'ID': "3gpp.{}".format(number),
-            'ENTRYTYPE': "techreport",
-            'title': "{{{}}}".format(title),
-            'type': doctype,
-            'author': "3GPP",
-            'institution': "{3rd Generation Partnership Project (3GPP)}",
-            'number': number,
-            'url': url
-        }
+        entry = format_entry(number, title, doctype, url)
 
         if row[0].hyperlink is not None:
             # entry['url'] = row[0].hyperlink.target
