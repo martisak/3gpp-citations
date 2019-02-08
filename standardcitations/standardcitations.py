@@ -74,6 +74,22 @@ def format_entry(number, title, doctype, url):
     }
 
 
+def format_url(number, xelatex=True):
+    """
+    This function formats the URL field. If xelatex is used
+    then we can allow for break-markers "\-"
+    """
+
+    breakchar = "\-" if xelatex else ""
+
+    url = "http://www.3gpp.org/{breakchar}DynaReport/" \
+        "{breakchar}{number}.htm".format(
+            breakchar=breakchar,
+            number=number.replace(".", ""))
+
+    return url
+
+
 def main(args):
     """
     The main function that does all the heavy lifting.
@@ -98,12 +114,7 @@ def main(args):
         if number is None:
             continue
 
-        if args.xelatex:
-            url = "http://www.3gpp.org/\-DynaReport/\-{}.htm".format(
-                number.replace(".", ""))
-        else:
-            url = "http://www.3gpp.org/DynaReport/{}.htm".format(
-                number.replace(".", ""))
+        url = format_url(number, args.xelatex)
 
         entry = format_entry(number, title, doctype, url)
 
