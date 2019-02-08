@@ -45,6 +45,18 @@ Example output:
 """
 
 
+def parse_row(row):
+    """
+    Parse a row in the sheet and return the data.
+    """
+
+    number = row[0].value
+    title = row[2].value
+    doctype = row[1].value
+
+    return number, title, doctype
+
+
 def main(args):
     """
     The main function that does all the heavy lifting.
@@ -64,9 +76,7 @@ def main(args):
             ws.iter_rows(row_offset=1),
             total=row_count):
 
-        number = row[0].value
-        title = row[2].value
-        type = row[1].value
+        number, title, type = parse_row(row)
 
         if number is None:
             continue
