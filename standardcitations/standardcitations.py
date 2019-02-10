@@ -193,13 +193,10 @@ def main(args):
     db = get_bibdatabase()
     ws = get_workbook(args.input)
 
-    row_count = ws.max_row - 1  # Skipping header
-
     # Iterate over the rows in the Excel-sheet but skip the header.
-
     for row in tqdm(
             ws.iter_rows(row_offset=1),
-            total=row_count):
+            total=ws.max_row - 1):
 
         entry = get_entry(row, args.xelatex)
 
