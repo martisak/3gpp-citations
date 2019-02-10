@@ -21,3 +21,18 @@ def test_get_entry_xelatex():
     assert entry['number'] == "36.101"
     assert entry['ID'] == '3gpp.{}'.format(entry['number'])
     assert entry['ENTRYTYPE'] == 'techreport'
+
+
+def test_get_entry_empty():
+    """
+    Test the get_entry function by reading the `test_input.xlsx` workbook
+    reading the and empty row and check that the output is None
+    """
+
+    ws = standardcitations.get_workbook(
+        "standardcitations/test/test_input.xlsx")
+
+    row = ws.__getitem__('5')
+    entry = standardcitations.get_entry(row, True)
+
+    assert not entry
