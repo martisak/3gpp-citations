@@ -160,18 +160,19 @@ def main(args):
 
             for release in range(2):
 
-                row = tree.xpath(
+                release_row = tree.xpath(
                     ('//tr[@id="SpecificationReleaseControl1_rpbReleases_i{}'
                         '_ctl00_specificationsVersionGrid_ctl00__0"]/td/div/a')
                     .format(release))
 
-                if len(row) > 0:
+                if len(release_row) > 0:
                     daterow = tree.xpath(
                         ('//tr[@id="SpecificationReleaseControl1_rpbReleases'
                          '_i{}_ctl00_specificationsVersionGrid_ctl00__0"]/td')
                         .format(release))
 
-                    entry['note'] = "Version {}".format(row[1].text.strip())
+                    entry['note'] = "Version {}".format(
+                        release_row[1].text.strip())
 
                     datestr = daterow[2].text.strip()
                     if datestr is not "":
