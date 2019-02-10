@@ -105,13 +105,23 @@ def parse_date(datestr):
     return year, month, day
 
 
+def get_bibdatabase():
+    """
+    Create an empty BibDatabase
+    """
+
+    db = BibDatabase()
+    db.entries = []
+
+    return db
+
+
 def main(args):
     """
     The main function that does all the heavy lifting.
     """
 
-    db = BibDatabase()
-    db.entries = []
+    db = get_bibdatabase()
 
     wb2 = load_workbook(args.input)
     ws = wb2[wb2.sheetnames[0]]
