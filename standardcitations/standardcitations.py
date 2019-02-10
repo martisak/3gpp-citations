@@ -116,15 +116,24 @@ def get_bibdatabase():
     return db
 
 
+def get_workbook(filename):
+    """
+    Open a workbook and return the first sheet.
+    """
+
+    wb2 = load_workbook(filename)
+    ws = wb2[wb2.sheetnames[0]]
+
+    return ws
+
+
 def main(args):
     """
     The main function that does all the heavy lifting.
     """
 
     db = get_bibdatabase()
-
-    wb2 = load_workbook(args.input)
-    ws = wb2[wb2.sheetnames[0]]
+    ws = get_workbook(args.input)
 
     row_count = ws.max_row - 1  # Skipping header
 
