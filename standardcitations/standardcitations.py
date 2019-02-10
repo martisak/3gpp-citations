@@ -127,6 +127,50 @@ def get_workbook(filename):
     return ws
 
 
+def get_entry(row, xelatex=True):
+    """
+    Return an entry from a row in the Excel-sheet
+    """
+
+    number, title, doctype = parse_row(row)
+
+    if number is None:
+        return None
+
+    url = format_url(number, xelatex)
+    entry = format_entry(number, title, doctype, url)
+
+    if row[0].hyperlink is not None:
+        # entry['url'] = row[0].hyperlink.target
+
+        page = requests.get(row[0].hyperlink.target)
+        tree = html.fromstring(page.content)
+
+        for release in range(2):
+
+            release_row = tree.xpath(
+                ('//tr[@id="SpecificationReleaseControl1_rpbReleases_i{}'
+                    '_ctl00_specificationsVersionGrid_ctl00__0"]/td/div/a')
+                .format(release))
+
+            if len(release_row) > 0:
+                daterow = tree.xpath(
+                    ('//tr[@id="SpecificationReleaseControl1_rpbReleases'
+                     '_i{}_ctl00_specificationsVersionGrid_ctl00__0"]/td')
+                    .format(release))
+
+                entry['note'] = "Version {}".format(
+                    release_row[1].text.strip())
+
+                datestr = daterow[2].text.strip()
+                if datestr is not "":
+                    entry['year'], entry['month'], entry['day'] = \
+                        parse_date(datestr)
+
+                break
+    return entry
+
+
 def main(args):
     """
     The main function that does all the heavy lifting.
@@ -143,45 +187,10 @@ def main(args):
             ws.iter_rows(row_offset=1),
             total=row_count):
 
-        number, title, doctype = parse_row(row)
+        entry = get_entry(row, args.xelatex)
 
-        if number is None:
-            continue
-
-        url = format_url(number, args.xelatex)
-
-        entry = format_entry(number, title, doctype, url)
-
-        if row[0].hyperlink is not None:
-            # entry['url'] = row[0].hyperlink.target
-
-            page = requests.get(row[0].hyperlink.target)
-            tree = html.fromstring(page.content)
-
-            for release in range(2):
-
-                release_row = tree.xpath(
-                    ('//tr[@id="SpecificationReleaseControl1_rpbReleases_i{}'
-                        '_ctl00_specificationsVersionGrid_ctl00__0"]/td/div/a')
-                    .format(release))
-
-                if len(release_row) > 0:
-                    daterow = tree.xpath(
-                        ('//tr[@id="SpecificationReleaseControl1_rpbReleases'
-                         '_i{}_ctl00_specificationsVersionGrid_ctl00__0"]/td')
-                        .format(release))
-
-                    entry['note'] = "Version {}".format(
-                        release_row[1].text.strip())
-
-                    datestr = daterow[2].text.strip()
-                    if datestr is not "":
-                        entry['year'], entry['month'], entry['day'] = \
-                            parse_date(datestr)
-
-                    break
-
-        db.entries.append(entry)
+        if (entry is not None):
+            db.entries.append(entry)
 
     writer = BibTexWriter()
 
