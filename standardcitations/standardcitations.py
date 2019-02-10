@@ -9,6 +9,7 @@ import sys
 from lxml import html
 import requests
 from tqdm import tqdm
+from datetime import datetime
 
 
 DESCRIPTION = """
@@ -90,6 +91,21 @@ def format_url(number, xelatex=True):
     return url
 
 
+def parse_date(datestr):
+    """
+    This function parses a string of the form 1982-06-22 into
+    year, month, day and returns them as strings.
+    """
+
+    datetime_object = datetime.strptime(datestr, '%Y-%m-%d')
+
+    year = str(datetime_object.year)
+    month = str(datetime_object.month)
+    day = str(datetime_object.day)
+
+    return year, month, day
+
+
 def main(args):
     """
     The main function that does all the heavy lifting.
@@ -139,11 +155,11 @@ def main(args):
 
                     entry['note'] = "Version {}".format(row[1].text.strip())
 
-                    if daterow[2].text.strip() is not "":
-                        date = daterow[2].text.split('-')
-                        entry['day'] = date[2].strip()
-                        entry['year'] = date[0].strip()
-                        entry['month'] = date[1].strip()
+                    datestr = daterow[2].text.strip()
+                    if datestr is not "":
+                        entry['year'], entry['month'], entry['day'] = \
+                            parse_date(datestr)
+
                     break
 
         db.entries.append(entry)
