@@ -5,7 +5,6 @@ from argparse import RawTextHelpFormatter
 from openpyxl import load_workbook
 from bibtexparser.bwriter import BibTexWriter
 from bibtexparser.bibdatabase import BibDatabase
-import sys
 from lxml import html
 import requests
 from tqdm import tqdm
