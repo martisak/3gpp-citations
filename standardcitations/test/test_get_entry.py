@@ -3,7 +3,15 @@ This test module contains basic tests for the get_entry function
 in standardcitations.
 """
 
+import pytest
 from standardcitations import standardcitations
+
+
+def setup_module(module):
+    """ setup any state specific to the execution of the given module."""
+
+    pytest.ws = standardcitations.get_workbook(
+        "standardcitations/test/test_input.xlsx")
 
 
 def test_get_entry_xelatex():
@@ -12,10 +20,7 @@ def test_get_entry_xelatex():
     reading the first (real) row, and producing an entry.
     """
 
-    ws = standardcitations.get_workbook(
-        "standardcitations/test/test_input.xlsx")
-
-    row = ws.__getitem__('2')
+    row = pytest.ws.__getitem__('2')
     entry = standardcitations.get_entry(row, True)
 
     assert entry['number'] == "36.101"
@@ -29,10 +34,7 @@ def test_get_entry_empty():
     reading the and empty row and check that the output is None
     """
 
-    ws = standardcitations.get_workbook(
-        "standardcitations/test/test_input.xlsx")
-
-    row = ws.__getitem__('5')
+    row = pytest.ws.__getitem__('5')
     entry = standardcitations.get_entry(row, True)
 
     assert not entry
