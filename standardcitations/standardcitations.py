@@ -171,6 +171,20 @@ def get_entry(row, xelatex=True):
     return entry
 
 
+def write_bibtex(db, filename=None):
+    """
+    If a filename is submitted we print to file, otherwise to stdout
+    """
+
+    writer = BibTexWriter()
+
+    if filename is not None:
+        with open(filename, 'w') as bibfile:
+            bibfile.write(writer.write(db))
+    else:
+        print(writer.write(db))
+
+
 def main(args):
     """
     The main function that does all the heavy lifting.
@@ -192,13 +206,7 @@ def main(args):
         if (entry is not None):
             db.entries.append(entry)
 
-    writer = BibTexWriter()
-
-    if args.output is not None:
-        with open(args.output, 'w') as bibfile:
-            bibfile.write(writer.write(db))
-    else:
-        print(writer.write(db))
+    write_bibtex(db, args.output)
 
 
 def parse_args(args):
