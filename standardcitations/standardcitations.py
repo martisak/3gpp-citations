@@ -1,8 +1,4 @@
 # -*- coding: utf-8 -*-
-# @Author: Martin Isaksson
-# @Date:   2019-01-14 08:38:09
-# @Last Modified by:   Martin Isaksson
-# @Last Modified time: 2019-02-06 20:13:06
 
 import argparse
 from argparse import RawTextHelpFormatter
@@ -13,6 +9,7 @@ import sys
 from lxml import html
 import requests
 from tqdm import tqdm
+from datetime import datetime
 
 
 DESCRIPTION = """
@@ -49,6 +46,66 @@ Example output:
 """
 
 
+def parse_row(row):
+    """
+    Parse a row in the sheet and return the data.
+    """
+
+    number = row[0].value
+    title = row[2].value
+    doctype = row[1].value
+
+    return number, title, doctype
+
+
+def format_entry(number, title, doctype, url):
+    """
+    Format the bibtex entry, return as dict
+    """
+
+    return {
+        'ID': "3gpp.{}".format(number),
+        'ENTRYTYPE': "techreport",
+        'title': "{{{}}}".format(title),
+        'type': doctype,
+        'author': "3GPP",
+        'institution': "{3rd Generation Partnership Project (3GPP)}",
+        'number': number,
+        'url': url
+    }
+
+
+def format_url(number, xelatex=True):
+    """
+    This function formats the URL field. If xelatex is used
+    then we can allow for break-markers "\-"
+    """
+
+    breakchar = "\-" if xelatex else ""
+
+    url = "http://www.3gpp.org/{breakchar}DynaReport/" \
+        "{breakchar}{number}.htm".format(
+            breakchar=breakchar,
+            number=number.replace(".", ""))
+
+    return url
+
+
+def parse_date(datestr):
+    """
+    This function parses a string of the form 1982-06-22 into
+    year, month, day and returns them as strings.
+    """
+
+    datetime_object = datetime.strptime(datestr, '%Y-%m-%d')
+
+    year = str(datetime_object.year)
+    month = str(datetime_object.month)
+    day = str(datetime_object.day)
+
+    return year, month, day
+
+
 def main(args):
     """
     The main function that does all the heavy lifting.
@@ -68,30 +125,14 @@ def main(args):
             ws.iter_rows(row_offset=1),
             total=row_count):
 
-        number = row[0].value
-        title = row[2].value
-        type = row[1].value
+        number, title, doctype = parse_row(row)
 
         if number is None:
             continue
 
-        if args.xelatex:
-            url = "http://www.3gpp.org/\-DynaReport/\-{}.htm".format(
-                number.replace(".", ""))
-        else:
-            url = "http://www.3gpp.org/DynaReport/{}.htm".format(
-                number.replace(".", ""))
+        url = format_url(number, args.xelatex)
 
-        entry = {
-            'ID': "3gpp.{}".format(number),
-            'ENTRYTYPE': "techreport",
-            'title': "{{{}}}".format(title),
-            'type': type,
-            'author': "3GPP",
-            'institution': "{3rd Generation Partnership Project (3GPP)}",
-            'number': number,
-            'url': url
-        }
+        entry = format_entry(number, title, doctype, url)
 
         if row[0].hyperlink is not None:
             # entry['url'] = row[0].hyperlink.target
@@ -114,11 +155,11 @@ def main(args):
 
                     entry['note'] = "Version {}".format(row[1].text.strip())
 
-                    if daterow[2].text.strip() is not "":
-                        date = daterow[2].text.split('-')
-                        entry['day'] = date[2].strip()
-                        entry['year'] = date[0].strip()
-                        entry['month'] = date[1].strip()
+                    datestr = daterow[2].text.strip()
+                    if datestr is not "":
+                        entry['year'], entry['month'], entry['day'] = \
+                            parse_date(datestr)
+
                     break
 
         db.entries.append(entry)
@@ -157,7 +198,3 @@ def parse_args(args):
     args = parser.parse_args(args)
 
     return args
-
-
-if __name__ == "__main__":
-    main(parse_args(sys.argv[1:]))

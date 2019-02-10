@@ -20,7 +20,7 @@ $ git commit -m "Category: A brief summary of the commit
 > A paragraph describing what changed and its impact."
 ~~~~
 
-where Category is in [`Enhancement`, `Documentation`, `Fix`, `Refactor`].
+where Category is in [`Enhancement`, `Documentation`, `Fix`, `Refactor`, `Test`].
 
 ### Do you want to contribute to the documentation?
 
@@ -41,6 +41,10 @@ Submit a pull request. Tag your commits with `Refactor: cosmetic - ` and some ex
 ### Do you intend to add a new feature or change an existing one?
 
 Submit a pull request. Tag your commits with `Enhancement`.
+
+### Did you write a test case?
+
+Submit a pull request. Tag your commits with `Test`.
 
 ## Coding conventions
 
