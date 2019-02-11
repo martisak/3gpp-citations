@@ -15,7 +15,7 @@ setup(
     author='Martin Isaksson',
     author_email='martin.isaksson@gmail.com',
     name='3gpp-citations',
-    version='0.1dev',
+    version='v1.0.0',
     url='https://github.com/martisak/3gpp-citations',
     packages=['standardcitations', ],
     license=open('LICENSE').read(),
