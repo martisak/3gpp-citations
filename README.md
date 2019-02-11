@@ -24,8 +24,8 @@ Tested with Python 2.7.10.
 ## Things to note
 
 * The output `bibtex` class is set to `@techreport`.
-* If you add the option `--xelatex`, no break-symbols `\-` will be used.
-* The version and date are read from the URL, but it is slow so it takes a while to parse the list. If you find an easy solution to this, let me know.
+* If you add the option `--xelatex`, break-symbols `\-` will be used in url-fields.
+* The version and date are read from 3gpp.org, but it is slow so it takes a while to parse the list. If you find an easy solution to this, let me know.
 
 ## Example output
 
