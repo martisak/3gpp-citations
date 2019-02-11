@@ -7,6 +7,8 @@ can be used when citing [3GPP](3gpp.org) specifications. The input is a document
 
 ## Installation
 
+Tested with Python 2.7.10.
+
 `pip install 3gpp-citations`
 
 ## Instructions
