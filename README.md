@@ -5,6 +5,10 @@
 This project aims to generate [BiBTeX](http://www.bibtex.org/) files that
 can be used when citing [3GPP](3gpp.org) specifications. The input is a document list exported from the [3GPP Portal](https://portal.3gpp.org/).
 
+## Installation
+
+`pip install 3gpp-citations`
+
 ## Instructions
 
 1. Go to the [3GPP Portal](https://portal.3gpp.org/#55936-specifications)
