@@ -6,7 +6,7 @@ in standardcitations.
 from standardcitations import standardcitations
 
 
-def test_parse_row():
+def test_excel_parse_row():
     """
     Test the parse row function by reading the `test_input.xlsx` workbook
     and reading the first (real) row.
@@ -15,7 +15,8 @@ def test_parse_row():
     ws = standardcitations.get_workbook(
         "standardcitations/test/test_input.xlsx")
 
-    number, title, doctype = standardcitations.parse_row(ws.__getitem__('2'))
+    number, title, doctype = standardcitations.parse_excel_row(
+        ws.__getitem__('2'))
 
     assert number == u'36.101'
     assert title == u'Evolved Universal Terrestrial Radio Access ' \
