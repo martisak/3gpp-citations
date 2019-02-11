@@ -13,4 +13,7 @@ clean-build:
 	-rm -rf dist/
 	-rm -rf *.egg-info
 
+build:
+	python setup.py sdist bdist_wheel
+
 .PHONY: init test clean-pyc clean-build
