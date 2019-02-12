@@ -17,6 +17,7 @@ pathlib2==2.3.3
 pep8==1.7.1
 pluggy==0.8.1
 py==1.7.0
+pylint==1.9.4
 pytest==4.2.0
 pytest-cache==1.0
 pytest-cov==2.6.1

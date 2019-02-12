@@ -13,6 +13,9 @@ clean-build:
 	-rm -rf dist/
 	-rm -rf *.egg-info
 
+lint:
+	/usr/bin/env python `which pylint` standardcitations
+
 build:
 	python setup.py sdist bdist_wheel
 
