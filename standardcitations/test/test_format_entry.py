@@ -22,7 +22,7 @@ def setup_module(module):
 
 def test_format_entry_type():
     """
-    Check that the output type is a dict
+    Check that the output type is a dict.
     """
 
     assert type(pytest.entry) == dict
@@ -53,7 +53,8 @@ def test_format_entry_entrytype():
 
 def test_format_entry_fields():
     """
-    Check that the output contains the input information
+    Check that the output contains the input information in the correct
+    place.
     """
 
     # These fields are set in the test, but in case there's a fault
