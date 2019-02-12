@@ -4,15 +4,18 @@ in standardcitations.
 """
 
 from standardcitations import standardcitations
+import validators
 
 
 def test_format_url():
     """
-    This function tests the default `format_url` function
+    This function tests the `format_url` function so that it produces
+    valid urls (without the break points)
     """
 
-    url = standardcitations.format_url("36.331")
-    assert "\-" in url
+    url = standardcitations.format_url("36.331", False)
+    print(url)
+    assert validators.url(url)
 
 
 def test_format_url_xelatex():

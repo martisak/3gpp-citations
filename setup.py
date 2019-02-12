@@ -25,7 +25,7 @@ setup(
     data_files=[
         ('examples', ['examples/3gpp.bib', 'examples/3gpp_38-series.bib'])],
     setup_requires=["pytest-runner"],
-    tests_require=["pytest"],
+    tests_require=["pytest", "validators"],
     install_requires=["openpyxl==2.4.8",
                       "bibtexparser==0.6.2",
                       "lxml==3.8.0",

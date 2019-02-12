@@ -31,3 +31,4 @@ scandir==1.9.0
 six==1.10.0
 tqdm==4.29.1
 urllib3==1.24.1
+validators==0.12.4
