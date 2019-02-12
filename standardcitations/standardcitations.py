@@ -183,7 +183,7 @@ def get_entry(row, xelatex=True):
     return entry
 
 
-def write_bibtex(db, filename=None):
+def write_bibtex(bib_database, filename=None):
     """
     If a filename is submitted we print to file, otherwise to stdout
     """
@@ -192,9 +192,9 @@ def write_bibtex(db, filename=None):
 
     if filename is not None:
         with open(filename, 'w') as bibfile:
-            bibfile.write(writer.write(db))
+            bibfile.write(writer.write(bib_database))
     else:
-        print(writer.write(db))
+        print(writer.write(bib_database))
 
 
 def main(args):
