@@ -1,6 +1,7 @@
 """
 This test module contains basic tests for the parse_args function
-in standardcitations.
+in standardcitations. It is important that the options are read correctly, and
+that they contains the correct information.
 """
 
 from standardcitations import standardcitations
