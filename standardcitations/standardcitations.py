@@ -1,5 +1,11 @@
 # -*- coding: utf-8 -*-
 
+"""
+This project aims to generate BiBTeX (http://www.bibtex.org/) files that
+can be used when citing 3GPP (3gpp.org) specifications. The input is a document
+list exported from the  3GPP Portal (https://portal.3gpp.org/).
+"""
+
 import argparse
 from argparse import RawTextHelpFormatter
 from openpyxl import load_workbook
