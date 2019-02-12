@@ -14,11 +14,11 @@ def test_excel_parse_row():
     we expect.
     """
 
-    ws = standardcitations.get_workbook(
+    worksheet = standardcitations.get_worksheet(
         "standardcitations/test/test_input.xlsx")
 
     number, title, doctype = standardcitations.parse_excel_row(
-        ws.__getitem__('2'))
+        worksheet.__getitem__('2'))
 
     assert number == u'36.101'
     assert title == u'Evolved Universal Terrestrial Radio Access ' \

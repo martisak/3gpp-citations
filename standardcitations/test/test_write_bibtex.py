@@ -28,7 +28,7 @@ def test_write_bibtex_stdout(capsys):
 
     database = standardcitations.get_bibdatabase()
 
-    ws = standardcitations.get_workbook(
+    ws = standardcitations.get_worksheet(
         "standardcitations/test/test_input.xlsx")
 
     row = ws.__getitem__('2')
@@ -50,7 +50,7 @@ def test_write_bibtex_file(tmp_path):
 
     database = standardcitations.get_bibdatabase()
 
-    ws = standardcitations.get_workbook(
+    ws = standardcitations.get_worksheet(
         "standardcitations/test/test_input.xlsx")
 
     row = ws.__getitem__('2')

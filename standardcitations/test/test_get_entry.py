@@ -11,7 +11,7 @@ from standardcitations import standardcitations
 def setup_module(module):
     """ setup any state specific to the execution of the given module."""
 
-    pytest.ws = standardcitations.get_workbook(
+    pytest.ws = standardcitations.get_worksheet(
         "standardcitations/test/test_input.xlsx")
 
 

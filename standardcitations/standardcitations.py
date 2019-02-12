@@ -126,13 +126,13 @@ def get_bibdatabase():
     return bib_database
 
 
-def get_workbook(filename):
+def get_worksheet(filename):
     """
     Open a workbook and return the first sheet.
     """
 
-    wb2 = load_workbook(filename)
-    worksheet = wb2[wb2.sheetnames[0]]
+    workbook = load_workbook(filename)
+    worksheet = workbook[workbook.sheetnames[0]]
 
     return worksheet
 
@@ -203,7 +203,7 @@ def main(args):
     """
 
     bib_database = get_bibdatabase()
-    worksheet = get_workbook(args.input)
+    worksheet = get_worksheet(args.input)
 
     # Iterate over the rows in the Excel-sheet but skip the header.
     for row in tqdm(
