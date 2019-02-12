@@ -212,7 +212,7 @@ def main(args):
 
         entry = get_entry(row, args.xelatex)
 
-        if (entry is not None):
+        if entry is not None:
             db.entries.append(entry)
 
     write_bibtex(db, args.output)
