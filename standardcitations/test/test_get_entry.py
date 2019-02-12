@@ -15,6 +15,22 @@ def setup_module(module):
         "standardcitations/test/test_input.xlsx")
 
 
+def test_get_entry_required_fields():
+    """
+    This test repeats the test from format_entry so that
+    we can be sure we didn't alter them here.
+    """
+
+    row = pytest.ws.__getitem__('2')
+    entry = standardcitations.get_entry(row, True)
+
+    # Required fields in @techreport
+    assert "year" in entry
+    assert "institution" in entry
+    assert "title" in entry
+    assert "author" in entry
+
+
 def test_get_entry_xelatex():
     """
     Test the get_entry function by reading the `test_input.xlsx` workbook
