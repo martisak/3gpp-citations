@@ -30,15 +30,20 @@ def test_format_entry_type():
 
 def test_format_entry_keys():
     """
-    Check that the entry contains all relevant keys
+    Check that the entry contains all required and relevant keys
     """
+
+    # Required fields in @techreport
+    assert 'title' in pytest.entry
+    assert 'author' in pytest.entry
+    assert 'institution' in pytest.entry
+
+    # Year is a required field, but is added by get_entry
+    # assert 'year' in pytest.entry
 
     assert 'ID' in pytest.entry
     assert 'ENTRYTYPE' in pytest.entry
-    assert 'title' in pytest.entry
     assert 'type' in pytest.entry
-    assert 'author' in pytest.entry
-    assert 'institution' in pytest.entry
     assert 'number' in pytest.entry
     assert 'url' in pytest.entry
 
