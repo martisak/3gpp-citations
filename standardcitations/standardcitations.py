@@ -175,7 +175,7 @@ def get_entry(row, xelatex=True):
                     release_row[1].text.strip())
 
                 datestr = daterow[2].text.strip()
-                if datestr is not "":
+                if datestr:
                     entry['year'], entry['month'], entry['day'] = \
                         parse_date(datestr)
 
