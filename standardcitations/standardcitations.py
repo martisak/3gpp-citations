@@ -162,7 +162,7 @@ def get_entry(row, xelatex=True):
 
             release_row = tree.xpath(
                 ('//tr[@id="SpecificationReleaseControl1_rpbReleases_i{}'
-                    '_ctl00_specificationsVersionGrid_ctl00__0"]/td/div/a')
+                 '_ctl00_specificationsVersionGrid_ctl00__0"]/td/div/a')
                 .format(release))
 
             if len(release_row) > 0:
