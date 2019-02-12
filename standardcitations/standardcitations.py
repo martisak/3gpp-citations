@@ -6,15 +6,16 @@ can be used when citing 3GPP (3gpp.org) specifications. The input is a document
 list exported from the  3GPP Portal (https://portal.3gpp.org/).
 """
 
+from __future__ import print_function
 import argparse
 from argparse import RawTextHelpFormatter
+from datetime import datetime
 from openpyxl import load_workbook
 from bibtexparser.bwriter import BibTexWriter
 from bibtexparser.bibdatabase import BibDatabase
 from lxml import html
 import requests
 from tqdm import tqdm
-from datetime import datetime
 
 
 DESCRIPTION = """
