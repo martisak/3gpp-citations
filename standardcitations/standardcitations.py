@@ -132,9 +132,9 @@ def get_workbook(filename):
     """
 
     wb2 = load_workbook(filename)
-    ws = wb2[wb2.sheetnames[0]]
+    worksheet = wb2[wb2.sheetnames[0]]
 
-    return ws
+    return worksheet
 
 
 def get_entry(row, xelatex=True):
