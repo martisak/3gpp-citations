@@ -46,7 +46,7 @@ Tested with Python 2.7.10.
 
 ## Contribute
 
-See our [contribution guidelines](CONTRIBUTING.md).
+See our [contribution guidelines](CONTRIBUTING.md) and our [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## Acknowledgment
 
