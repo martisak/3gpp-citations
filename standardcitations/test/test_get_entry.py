@@ -34,7 +34,9 @@ def test_get_entry_required_fields():
 def test_get_entry_xelatex():
     """
     Test the get_entry function by reading the `test_input.xlsx` workbook
-    reading the first (real) row, and producing an entry.
+    reading the first (real) row, and producing an entry. We don't test
+    dynamic fields such as date or note (release) exactly since these are prone
+    to change, but rather that they are within expected ranges.
     """
 
     row = pytest.ws.__getitem__('2')
