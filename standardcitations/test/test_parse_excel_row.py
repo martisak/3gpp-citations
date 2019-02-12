@@ -9,7 +9,9 @@ from standardcitations import standardcitations
 def test_excel_parse_row():
     """
     Test the parse row function by reading the `test_input.xlsx` workbook
-    and reading the first (real) row.
+    and reading the first (real) row with actual data. We test here
+    that the parsing function parses the row correctly and outputs what
+    we expect.
     """
 
     ws = standardcitations.get_workbook(
