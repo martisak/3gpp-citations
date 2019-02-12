@@ -82,12 +82,15 @@ def format_entry(number, title, doctype, url):
 
 
 def format_url(number, xelatex=True):
-    """
+    r"""
     This function formats the URL field. If xelatex is used
     then we can allow for break-markers "\-"
     """
 
-    breakchar = "\-" if xelatex else ""
+    # Disable Anomalous backslash in string: '\-'.
+    # String constant might be missing an r prefix.
+    # (anomalous-backslash-in-string)
+    breakchar = "\-" if xelatex else ""  # pylint: disable=W1401
 
     url = "http://www.3gpp.org/{breakchar}DynaReport/" \
         "{breakchar}{number}.htm".format(
