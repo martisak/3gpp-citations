@@ -4,6 +4,7 @@ in standardcitations.
 """
 
 import pytest
+import validators
 from standardcitations import standardcitations
 
 
@@ -26,6 +27,10 @@ def test_get_entry_xelatex():
     assert entry['number'] == "36.101"
     assert entry['ID'] == '3gpp.{}'.format(entry['number'])
     assert entry['ENTRYTYPE'] == 'techreport'
+
+    assert validators.between(int(entry['year']), min=2010)
+    assert validators.between(int(entry['month']), min=1, max=12)
+    assert validators.between(int(entry['day']), min=1, max=31)
 
 
 def test_get_entry_empty():
