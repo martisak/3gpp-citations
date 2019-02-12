@@ -120,10 +120,10 @@ def get_bibdatabase():
     Create an empty BibDatabase
     """
 
-    db = BibDatabase()
-    db.entries = []
+    bib_database = BibDatabase()
+    bib_database.entries = []
 
-    return db
+    return bib_database
 
 
 def get_workbook(filename):
