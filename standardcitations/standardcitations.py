@@ -165,7 +165,7 @@ def get_entry(row, xelatex=True):
                  '_ctl00_specificationsVersionGrid_ctl00__0"]/td/div/a')
                 .format(release))
 
-            if len(release_row) > 0:
+            if release_row:
                 daterow = tree.xpath(
                     ('//tr[@id="SpecificationReleaseControl1_rpbReleases'
                      '_i{}_ctl00_specificationsVersionGrid_ctl00__0"]/td')
@@ -202,7 +202,7 @@ def main(args):
     The main function that does all the heavy lifting.
     """
 
-    db = get_bibdatabase()
+    bib_database = get_bibdatabase()
     ws = get_workbook(args.input)
 
     # Iterate over the rows in the Excel-sheet but skip the header.
@@ -213,9 +213,9 @@ def main(args):
         entry = get_entry(row, args.xelatex)
 
         if entry is not None:
-            db.entries.append(entry)
+            bib_database.entries.append(entry)
 
-    write_bibtex(db, args.output)
+    write_bibtex(bib_database, args.output)
 
 
 def parse_args(args):
