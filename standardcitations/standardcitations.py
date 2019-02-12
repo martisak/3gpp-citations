@@ -203,12 +203,12 @@ def main(args):
     """
 
     bib_database = get_bibdatabase()
-    ws = get_workbook(args.input)
+    worksheet = get_workbook(args.input)
 
     # Iterate over the rows in the Excel-sheet but skip the header.
     for row in tqdm(
-            ws.iter_rows(row_offset=1),
-            total=ws.max_row - 1):
+            worksheet.iter_rows(row_offset=1),
+            total=worksheet.max_row - 1):
 
         entry = get_entry(row, args.xelatex)
 
