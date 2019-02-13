@@ -7,7 +7,7 @@ import pytest
 from standardcitations import standardcitations
 
 
-def setup_module(module):
+def setup_module():
     """ setup any state specific to the execution of the given module."""
 
     pytest.input = {
