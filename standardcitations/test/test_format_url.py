@@ -3,8 +3,8 @@ This test module contains basic tests for the format_url function
 in standardcitations.
 """
 
-from standardcitations import standardcitations
 import validators
+from standardcitations import standardcitations
 
 
 def test_format_url():
