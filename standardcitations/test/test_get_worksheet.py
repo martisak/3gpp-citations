@@ -12,6 +12,6 @@ def test_get_worksheet():
     name from the test input file.
     """
 
-    ws = standardcitations.get_worksheet(
+    worksheet = standardcitations.get_worksheet(
         "standardcitations/test/test_input.xlsx")
-    assert ws.title == u'Specifications'
+    assert worksheet.title == u'Specifications'

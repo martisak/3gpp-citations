@@ -3,8 +3,8 @@ This test module contains basic tests for the format_url function
 in standardcitations.
 """
 
-from standardcitations import standardcitations
 import validators
+from standardcitations import standardcitations
 
 
 def test_format_url():
@@ -14,7 +14,6 @@ def test_format_url():
     """
 
     url = standardcitations.format_url("36.331", False)
-    print(url)
     assert validators.url(url)
 
 
@@ -24,7 +23,7 @@ def test_format_url_xelatex():
     """
 
     url = standardcitations.format_url("36.331", True)
-    assert "\-" in url
+    assert r"\-" in url
 
 
 def test_format_url_no_xelatex():
@@ -33,4 +32,4 @@ def test_format_url_no_xelatex():
     set to False.
     """
     url = standardcitations.format_url("36.331", False)
-    assert "\-" not in url
+    assert r"\-" not in url

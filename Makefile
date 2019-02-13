@@ -2,7 +2,12 @@ init:
 	pip install -r requirements.txt
 
 test: clean-pyc
-	py.test --doctest-modules --pep8 standardcitations -v --cov standardcitations --cov-report term-missing
+	py.test \
+		--pylint --pylint-jobs=4  \
+		--flakes --doctest-modules \
+		--pep8 standardcitations -v \
+		--cov standardcitations --cov-report term-missing \
+		--durations=10
 
 clean-pyc:
 	-find . -name '*.pyc' -exec rm -f {} +

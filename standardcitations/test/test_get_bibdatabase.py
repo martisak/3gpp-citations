@@ -15,5 +15,5 @@ def test_get_bibdatabase():
 
     database = standardcitations.get_bibdatabase()
 
-    assert type(database) == BibDatabase
+    assert isinstance(database, BibDatabase)
     assert not database.get_entry_list()
