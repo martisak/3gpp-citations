@@ -25,7 +25,7 @@ def test_format_entry_type():
     Check that the output type is a dict.
     """
 
-    assert type(pytest.entry) == dict
+    assert isinstance(pytest.entry, dict)
 
 
 def test_format_entry_keys():
