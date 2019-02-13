@@ -14,7 +14,6 @@ def test_format_url():
     """
 
     url = standardcitations.format_url("36.331", False)
-    print(url)
     assert validators.url(url)
 
 
