@@ -6,7 +6,7 @@ sudo: true
 install:
   - pip install -e .[test]
 script:
-  - py.test --doctest-modules --pep8 standardcitations -v --cov standardcitations --cov-report term-missing
+  - make test
 after_success:
   - coveralls
 
