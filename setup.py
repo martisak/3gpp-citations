@@ -1,6 +1,8 @@
 from setuptools import setup, find_packages
 
 TESTS_REQUIRE = [
+    'python-coveralls==2.9.1',
+    'coverage==4.5.2',
     'pytest==4.2.0',
     'pytest-cov==2.6.1',
     'pytest-flakes==4.0.0',
