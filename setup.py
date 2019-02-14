@@ -1,15 +1,7 @@
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+from setuptools import setup, find_packages
 
-from io import open
+# from io import open
 from os import path
-
-# read the contents of the README file
-this_directory = path.abspath(path.dirname(__file__))
-with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
-    long_description = f.read()
 
 TESTS_REQUIRE = [
     'pytest==4.2.0',
@@ -18,28 +10,33 @@ TESTS_REQUIRE = [
     'pytest-pep8==1.0.6',
     'pytest-pylint==0.14.',
     'validators==0.12.',
+    'twine==1.12.1'
 ]
+
+INSTALL_REQUIRE = ["openpyxl==2.4.8",
+                   "bibtexparser==0.6.2",
+                   "lxml==4.3.1",
+                   "requests==2.21.0",
+                   "tqdm==4.31.1"]
+
+DESCRIPTION = "This project generates BiBTeX-files for 3GPP specifications."
 
 setup(
     author='Martin Isaksson',
     author_email='martin.isaksson@gmail.com',
     name='3gpp-citations',
-    version='1.1.1',
+    version='1.1.2',
+    description=DESCRIPTION,
+    long_description=open('README.md').read(),
+    long_description_content_type='text/markdown',
+    platforms=['any'],
     classifiers=[
-        # How mature is this project? Common values are
-        #   3 - Alpha
-        #   4 - Beta
-        #   5 - Production/Stable
         'Development Status :: 5 - Production/Stable',
         'Environment :: Console',
-        # Indicate who your project is intended for
         'Intended Audience :: Science/Research',
-        'Topic :: Scientific/Engineering',
-        # Pick your license as you wish (should match "license" above)
+        'Topic :: Education',
         'License :: OSI Approved :: MIT License',
-
-        # Specify the Python versions you support here. In particular, ensure
-        # that you indicate whether you support Python 2, Python 3 or both.
+        'Operating System :: OS Independent',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
@@ -47,19 +44,14 @@ setup(
         'Natural Language :: English',
     ],
     url='https://github.com/martisak/3gpp-citations',
-    packages=['standardcitations', ],
+    packages=find_packages(),
     license=open('LICENSE').read(),
-    long_description=long_description,
-    long_description_content_type='text/markdown',
     scripts=['bin/3gpp-citations'],
     data_files=[
         ('examples', ['examples/3gpp.bib', 'examples/3gpp_38-series.bib'])],
+    python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, <4',
     setup_requires=["pytest-runner"],
     tests_require=TESTS_REQUIRE,
-    install_requires=["openpyxl==2.4.8",
-                      "bibtexparser==0.6.2",
-                      "lxml==4.3.1",
-                      "requests==2.21.0",
-                      "tqdm==4.31.1"],
+    install_requires=INSTALL_REQUIRE,
     extras_require={'test': TESTS_REQUIRE},
 )
