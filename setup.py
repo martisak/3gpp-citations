@@ -24,7 +24,7 @@ setup(
     author='Martin Isaksson',
     author_email='martin.isaksson@gmail.com',
     name='3gpp-citations',
-    version='1.1.0',
+    version='1.1.1',
     classifiers=[
         # How mature is this project? Common values are
         #   3 - Alpha
