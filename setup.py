@@ -1,8 +1,5 @@
 from setuptools import setup, find_packages
 
-# from io import open
-from os import path
-
 TESTS_REQUIRE = [
     'pytest==4.2.0',
     'pytest-cov==2.6.1',
