@@ -22,7 +22,7 @@ setup(
     author='Martin Isaksson',
     author_email='martin.isaksson@gmail.com',
     name='3gpp-citations',
-    version='1.1.2',
+    version='1.1.3',
     description=DESCRIPTION,
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
