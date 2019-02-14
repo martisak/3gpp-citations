@@ -1,6 +1,8 @@
 init:
 	pip install -r requirements.txt
 
+clean: clean-pyc clean-build
+
 test: clean-pyc
 	py.test \
 		--pylint --pylint-jobs=4  \
