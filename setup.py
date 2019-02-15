@@ -44,7 +44,7 @@ setup(
     ],
     url='https://github.com/martisak/3gpp-citations',
     packages=find_packages(),
-    license=open('LICENSE').read(),
+    license="MIT",
     scripts=['bin/3gpp-citations'],
     data_files=[
         ('examples', ['examples/3gpp.bib', 'examples/3gpp_38-series.bib'])],
