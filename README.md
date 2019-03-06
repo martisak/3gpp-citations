@@ -50,6 +50,10 @@ To also install test dependencies run
 
 See our [contribution guidelines](CONTRIBUTING.md) and our [Code of Conduct](CODE_OF_CONDUCT.md).
 
+## Other
+
+A presentation about the CI-pipeline used in this project [can be found here](https://martisak.gitlab.io/wasp_sw_course_testing/).
+
 ## Acknowledgment
 
 This project has been updated as part of the [WASP Software and Cloud Technology](http://wasp-sweden.org/graduate-school/courses/software-and-cloud-technology-spring-2019/) course.
