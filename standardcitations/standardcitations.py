@@ -197,7 +197,7 @@ def write_bibtex(bib_database, filename=None):
         print(writer.write(bib_database))
 
 
-def main(args):
+def main(args=None):
     """
     The main function that does all the heavy lifting.
     """
@@ -205,10 +205,11 @@ def main(args):
     bib_database = get_bibdatabase()
     worksheet = get_worksheet(args.input)
 
+    min_row_prev = worksheet.min_row
     # Iterate over the rows in the Excel-sheet but skip the header.
     for row in tqdm(
-            worksheet.iter_rows(row_offset=1),
-            total=worksheet.max_row - 1):
+            worksheet.iter_rows(min_row=min_row_prev+1),
+            total=worksheet.max_row):
 
         entry = get_entry(row, args.xelatex)
 
@@ -243,3 +244,7 @@ def parse_args(args):
     args = parser.parse_args(args)
 
     return args
+
+if __name__ == '__main__':
+    args = parse_args()
+    main(args)
